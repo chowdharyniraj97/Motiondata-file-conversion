@@ -40,7 +40,7 @@ def bvh_iterator(file):
     csv.write(','.join(header) + '\n')  # Write header
     zz = 1
     for line in file:  # For each frame line
-        if zz > 250:
+        if zz > 120:
             yield line
         else:
             zz = zz+1
