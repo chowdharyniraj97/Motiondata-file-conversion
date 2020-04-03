@@ -38,12 +38,20 @@ def bvh_iterator(file):
             break
 
     csv.write(','.join(header) + '\n')  # Write header
-    zz = 1
+    s = 449
+    e = 726
+
+    s1 = 1270
+    e1 = 1463
+    cur = 0
     for line in file:  # For each frame line
-        if zz > 120:
+        if cur >= s1 and cur <= e1:
+            cur = cur+1
+            continue
+        if (cur >= 0 and cur < s) or cur > e:
             yield line
-        else:
-            zz = zz+1
+
+        cur = cur+1
 
 
 if __name__ == '__main__':
